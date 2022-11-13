@@ -52,13 +52,13 @@ public class DepartmentListController implements Initializable {
 		System.out.println("onBtNewAction");
 	}
 
-	public void setDepartmentService(DepartmentService service) {
-		this.service = service;
-	}
-
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		initializeNodes();
+	}
+	
+	public void setDepartmentService(DepartmentService service) {
+		this.service = service;
 	}
 
 	private void initializeNodes() {
@@ -85,6 +85,7 @@ public class DepartmentListController implements Initializable {
 			
 			DepartmentFormController controller = loader.getController();
 			controller.setDepartment(obj);
+			controller.setDepartmentService(new DepartmentService());
 			controller.updateFormData();
 			
 			Stage dialogStage = new Stage();
